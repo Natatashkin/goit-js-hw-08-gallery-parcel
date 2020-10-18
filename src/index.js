@@ -9,11 +9,6 @@ galleryRef.addEventListener('click', onModalOpen);
 lightboxOverlay.addEventListener("click", onCloseLightboxByClick);
 lightBoxCloseBtn.addEventListener("click", onCloseModal);
 
-// function onImageClick(event) {
-//   event.preventDefault();
-//   return event.target.dataset.source;
-// }
-
 function onModalOpen(event) {
   event.preventDefault();
   window.addEventListener("keydown", onCloseModalByEsc);
@@ -31,13 +26,6 @@ function onModalOpen(event) {
   lightboxRef.classList.add("is-open");
   onChangeLightboxImageUrl(event);
 }
- 
-// function onChangeLightboxImageUrl(event) {
-//     if (lightboxRef.classList.contains("is-open")) {
-//         lightboxImageRef.src = onImageClick(event);
-//         lightboxImageRef.alt = event.target.alt;
-//     }
-// }
 
 function getIndex() {
     return images.findIndex(elem => lightboxImageRef.src === elem.original);
