@@ -19,7 +19,7 @@ galleryRef.addEventListener("click", onModalOpen);
 lightboxOverlay.addEventListener("click", onCloseLightboxByClick);
 lightBoxCloseBtn.addEventListener("click", onCloseModal);
 
-function createListItem (galleryItems) {
+function createListItem(galleryItems) {
   return galleryItems.map(({ preview, original, description }) => {
     return `
     <li class="gallery__item">
