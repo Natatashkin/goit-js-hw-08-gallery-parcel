@@ -1,5 +1,5 @@
 import "./css/style.css";
-import images from "./js/gallery-items.js";
+// import images from "./js/gallery-items.js";
 
 const galleryRef = document.querySelector(".js-gallery");
 const lightboxRef = document.querySelector(".js-lightbox");
