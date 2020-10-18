@@ -1,6 +1,5 @@
 import "./css/style.css";
 import images from "./js/gallery-items.js";
-import { createListItem, onImageClick } from './js/script';
 import { onModalOpen, onChangeLightboxImageUrl } from './js/onOpenModal';
 import { getIndex, setLightboxImageRefAttribute, onShowNextImage, onShowPreviousImage } from './js/onModalGallery';
 import { onCloseModal, onCloseModalByEsc, onCloseLightboxByClick, onClearlightboxImageRef } from './js/onCloseModal';
@@ -20,3 +19,22 @@ galleryRef.addEventListener("click", onModalOpen);
 lightboxOverlay.addEventListener("click", onCloseLightboxByClick);
 lightBoxCloseBtn.addEventListener("click", onCloseModal);
 
+function createListItem (galleryItems) {
+  return galleryItems.map(({ preview, original, description }) => {
+    return `
+    <li class="gallery__item">
+      <a class="gallery__link" href="${original}">
+        <img class="gallery__image"
+          src="${preview}" 
+          data-source="${original}" 
+          alt="${description}"/>
+      </a>
+    </li >
+    `
+  }).join("");
+};
+
+function onImageClick(event) {
+  event.preventDefault();
+  return event.target.dataset.source;
+}
