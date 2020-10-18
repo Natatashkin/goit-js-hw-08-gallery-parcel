@@ -1,20 +1,3 @@
-import images from "./gallery-items.js";
-
-const galleryRef = document.querySelector(".js-gallery");
-const lightboxRef = document.querySelector(".js-lightbox");
-const lightboxOverlay = document.querySelector(".lightbox__overlay");
-const lightboxImageRef = document.querySelector(".lightbox__image");
-const lightBoxCloseBtn = document.querySelector(
-  '[data-action="close-lightbox"]'
-);
-
-const galleryLits = createListItem(images);
-galleryRef.insertAdjacentHTML('beforeend', galleryLits);
-
-galleryRef.addEventListener("click", onModalOpen);
-lightboxOverlay.addEventListener("click", onCloseLightboxByClick);
-lightBoxCloseBtn.addEventListener("click", onCloseModal);
-
 
 function createListItem (galleryItems) {
   return galleryItems.map(({ preview, original, description }) => {
