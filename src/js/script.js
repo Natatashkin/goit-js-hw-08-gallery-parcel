@@ -1,3 +1,4 @@
+import images from "./gallery-items.js";
 
 function createListItem (galleryItems) {
   return galleryItems.map(({ preview, original, description }) => {
