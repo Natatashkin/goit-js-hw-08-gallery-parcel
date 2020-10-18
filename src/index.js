@@ -18,7 +18,7 @@ function onModalOpen(event) {
   event.preventDefault();
   window.addEventListener("keydown", onCloseModalByEsc);
   window.addEventListener("keydown", onShowNextImage);
-   window.addEventListener("keydown", onShowPreviousImage);
+    window.addEventListener("keydown", onShowPreviousImage);
   if (event.target.nodeName !== "IMG") {
     return;
   }
