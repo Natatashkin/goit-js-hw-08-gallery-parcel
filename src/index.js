@@ -1,16 +1,15 @@
 import "./css/style.css";
 import images from "./js/gallery-items.js";
-import onModalOpen from './js/open-modal';
+import {onModalOpen, onChangeLightboxImageUrl, onImageClick} from './js/open-modal';
 
 console.log(onModalOpen);
 const galleryRef = document.querySelector(".js-gallery");
-const lightboxRef = document.querySelector(".js-lightbox");
+export const lightboxRef = document.querySelector(".js-lightbox");
 const lightboxOverlay = document.querySelector(".lightbox__overlay");
-const lightboxImageRef = document.querySelector(".lightbox__image");
+export const lightboxImageRef = document.querySelector(".lightbox__image");
 const lightBoxCloseBtn = document.querySelector(
   '[data-action="close-lightbox"]'
 );
-
 const galleryLits = createListItem(images);
 galleryRef.insertAdjacentHTML('beforeend', galleryLits);
 
@@ -33,10 +32,10 @@ function createListItem(galleryItems) {
   }).join("");
 };
 
-function onImageClick(event) {
-  event.preventDefault();
-  return event.target.dataset.source;
-}
+// function onImageClick(event) {
+//   event.preventDefault();
+//   return event.target.dataset.source;
+// }
 
 // function onModalOpen(event) {
 //   event.preventDefault();
@@ -56,12 +55,12 @@ function onImageClick(event) {
 //   onChangeLightboxImageUrl(event);
 // }
  
-function onChangeLightboxImageUrl(event) {
-    if (lightboxRef.classList.contains("is-open")) {
-        lightboxImageRef.src = onImageClick(event);
-        lightboxImageRef.alt = event.target.alt;
-    }
-}
+// function onChangeLightboxImageUrl(event) {
+//     if (lightboxRef.classList.contains("is-open")) {
+//         lightboxImageRef.src = onImageClick(event);
+//         lightboxImageRef.alt = event.target.alt;
+//     }
+// }
 
 function getIndex() {
     return images.findIndex(elem => lightboxImageRef.src === elem.original);
@@ -74,7 +73,7 @@ function setLightboxImageRefAttribute(index) {
   lightboxImageRef.setAttribute("alt", nextImageAlt);
 }
   
-function onShowNextImage(event) {
+export function onShowNextImage(event) {
   if (!(event.code === "ArrowRight")) {
     return;
   }
@@ -89,7 +88,7 @@ function onShowNextImage(event) {
   setLightboxImageRefAttribute(currentImageIndex);
 
 }
-function onShowPreviousImage(event) {
+export function onShowPreviousImage(event) {
 if (!(event.code === "ArrowLeft")) {
     return;
   }
@@ -112,7 +111,7 @@ function onCloseModal() {
   onClearlightboxImageRef();
 }
 
-function onCloseModalByEsc(event) {
+export function onCloseModalByEsc(event) {
   if (event.code === "Escape") {
     onCloseModal();
   }
