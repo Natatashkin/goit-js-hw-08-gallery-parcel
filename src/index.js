@@ -2,17 +2,17 @@ import "./css/style.css";
 import images from "./js/gallery-items.js";
 import { galleryRef, lightboxRef, lightboxOverlay, lightboxImageRef, lightBoxCloseBtn } from './js/selectors';
 import { galleryLits, createListItem } from './js/create-listitem';
-
+import { onImageClick, onChangeLightboxImageUrl } from './js/image-url';
 galleryRef.insertAdjacentHTML('beforeend', galleryLits);
 
 galleryRef.addEventListener('click', onModalOpen);
 lightboxOverlay.addEventListener("click", onCloseLightboxByClick);
 lightBoxCloseBtn.addEventListener("click", onCloseModal);
 
-function onImageClick(event) {
-  event.preventDefault();
-  return event.target.dataset.source;
-}
+// function onImageClick(event) {
+//   event.preventDefault();
+//   return event.target.dataset.source;
+// }
 
 function onModalOpen(event) {
   event.preventDefault();
@@ -32,12 +32,12 @@ function onModalOpen(event) {
   onChangeLightboxImageUrl(event);
 }
  
-function onChangeLightboxImageUrl(event) {
-    if (lightboxRef.classList.contains("is-open")) {
-        lightboxImageRef.src = onImageClick(event);
-        lightboxImageRef.alt = event.target.alt;
-    }
-}
+// function onChangeLightboxImageUrl(event) {
+//     if (lightboxRef.classList.contains("is-open")) {
+//         lightboxImageRef.src = onImageClick(event);
+//         lightboxImageRef.alt = event.target.alt;
+//     }
+// }
 
 function getIndex() {
     return images.findIndex(elem => lightboxImageRef.src === elem.original);
